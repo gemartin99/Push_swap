@@ -12,36 +12,61 @@
 
 NAME = push_swap
 
+NAME_BONUS = checker
+
 GREEN := \033[0;92m
+YELLOW=\033[1;33m
+BLUE=\033[0;34m
+RED=\033[0;31m
+WHITE= @echo "\033[0;37m"
 
-SRCS = pushswap.c ft_strlen.c ft_atoi.c swap.c sortnum.c changenum.c sa.c rra.c ra.c rrb.c \
-			size3.c size5.c size100.c size500.c rb.c rr.c sb.c rrr.c check_order.c check_same_nums.c \
-			ft_free.c ordernums_peq.c ordernums.c pa.c pb.c check_num.c ft_isdigit.c ft_space.c \
-			ft_substr.c ft_arg2_to_int.c
+SRCS = ./src/pushswap.c ./src/ft_strlen.c ./src/ft_atoi.c ./src/swap.c ./src/sortnum.c \
+			./src/changenum.c ./src/sa.c ./src/rra.c ./src/ra.c ./src/rrb.c \
+			./src/size3.c ./src/size5.c ./src/size100.c ./src/size500.c \
+			./src/rb.c ./src/rr.c ./src/sb.c ./src/rrr.c ./src/check_order.c \
+			./src/check_same_nums.c ./src/ft_free.c ./src/ordernums_peq.c ./src/ordernums.c \
+			./src/pa.c ./src/pb.c ./src/check_num.c ./src/ft_isdigit.c \
+			./src/ft_substr.c ./src/ft_free2.c ./src/check_args.c
 
-INCLUDE = pushswap.h
+BONUS_SRC = ./bns/checker_bonus.c ./bns/ss_bonus.c ./bns/sa_bonus.c ./bns/sb_bonus.c ./bns/pa_bonus.c \
+				./bns/rb_bonus.c ./bns/rr_bonus.c ./bns/rra_bonus.c ./bns/rrb_bonus.c ./bns/rrr_bonus.c ./bns/swap_bonus.c \
+				./bns/get_next_line_bonus.c ./bns/checker_lines_bonus.c ./bns/check_same_nums_bonus.c \
+				./bns/utils_bonus.c ./bns/check_args_bonus.c ./bns/pb_bonus.c ./bns/ra_bonus.c
+
+INCLUDE = ./inc/pushswap.h
+
+INCLUDE_BONUS = ./inc/pushswap_bonus.h
 
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -MMD
 
 .c.o:
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 OBJS = ${SRCS:.c=.o}
-
-${NAME}: ${OBJS} $(INCLUDE)
-	${CC} ${CFLAGS} ${SRCS} -o ${NAME}
-	@echo "$(GREEN)Compiled successfully.$(DEF_COLOR)"
+BONUS_OBJS = ${BONUS_SRC:.c=.o}
+DEPS = $(addsuffix .d, $(basename $(SRCS)))
+DEPS2 = $(addsuffix .d, $(basename $(BONUS_SRC)))
 
 all:	${NAME}
 
+-include ${DEPS}
+${NAME}: ${OBJS} $(INCLUDE)
+	${CC} ${SRCS} -o ${NAME}
+
+-include ${DEPS2}
+bonus: ${BONUS_OBJS}
+				@touch $@
+				${CC} ${BONUS_SRC} -o ${NAME_BONUS}
+
 clean:
-			${RM} ${OBJS}
-			@echo "$(GREEN)Objects cleaned successfully.$(DEF_COLOR)"
+			${RM} ${OBJS} ${BONUS_OBJS}
+			${RM} ${DEPS} ${DEPS2}
 
 fclean: clean
-			${RM} ${NAME}
+			${RM} bonus
+			${RM} ${NAME} ${NAME_BONUS} 
 
 re: fclean all
 
