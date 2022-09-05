@@ -64,3 +64,19 @@ Solo se debe hacer el bonus si la parte obligatoria esta al 100%. El bonus consi
 si tu stack A esta ordenado. Para ello deberás mandarle como argumentos los numeros del stack y una vez se ejecute el programa debes mandarle las operaciones que quieres realizar para ordenarlo. Cuando queramos dejar de mandarle operaciones haremos ```Ctrl + D``` y el checker nos dirá "OK" si esta ordenado o "KO" si no lo esta. La controlación de errores del checker debe ser la misma que en push_swap. 
 
 ![](https://github.com/gemartin99/Push_swap/blob/master/checker.gif)
+
+# Quizás pueda interesarte!
+
+### - Para ver mi progresion en el common core 42 ↙️
+
+[AQUÍ](https://github.com/gemartin99/42cursus)
+
+### - Mi perfil en la intranet de 42 ↙️
+[AQUÍ](https://profile.intra.42.fr/users/gemartin)
+
+### - Contacto 📥
+
+◦ Email: gemartin@student.42barcelona.com
+
+◦ Linkedin: https://www.linkedin.com/in/gemartin99/
+
