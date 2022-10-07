@@ -65,6 +65,12 @@ si tu stack A esta ordenado. Para ello deberás mandarle como argumentos los num
 
 ![](https://github.com/gemartin99/Push_swap/blob/master/checker.gif)
 
+# TESTER 🟩🆗🟩
+
+Comprueba que todo este correcto antes de validar el proyecto! 
+
+➡️ [TESTER PROPIO](https://github.com/gemartin99/Push_swap_tester) ⬅️
+
 # Quizás pueda interesarte!
 
 ### - Para ver mi progresion en el common core 42 ↙️
